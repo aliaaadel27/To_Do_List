@@ -4,17 +4,15 @@ including building responsive layouts, implementing core functionality with Java
 Project Overview
 This project is designed to help users manage tasks efficiently, offering a smooth user experience and interactive design. Users can add, delete, and edit tasks,
 as well as mark them as completed. The tasks persist in the browser even after a reload, thanks to localStorage.
-
-Technical Requirements
-The project was built from scratch using the following tools and technologies:
 ----------------------------------------------------------------------------------------------------
-HTML5: For structuring the content of the page.
-CSS3: For styling and ensuring the layout is visually appealing and responsive.
-JavaScript (ES6+): To implement the functionality, interactions, and data handling.
-No External Libraries or Frameworks: The application uses only vanilla JavaScript, CSS, and HTML.
-Flexbox/Grid Layouts: For structuring the UI in a responsive and flexible manner.
+Technical Requirements:
+The project was built from scratch:
+1.HTML5 for structuring
+2.CSS3 for styling
+3.JavaScript ES6+ for functionality
+4.Use Flexbox or Grid for layout design
+5-Bootstrap
 ----------------------------------------------------------------------------------------------------
-
 Features
 1. User Interface
 Responsive Design: The application adapts seamlessly to mobile devices, tablets, and desktop screens.
