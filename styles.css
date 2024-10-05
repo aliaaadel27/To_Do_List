@@ -1,0 +1,214 @@
+/* Global styles for app-like look */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #2c2c2c;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure it covers full screen height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+    background-color: #636363;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+    width: 90%; /* Make it adaptable for all screen sizes */
+    max-width: 1200px; /* Cap the width on larger screens */
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden; /* Prevent overflow */
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.task-input-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.task-input-container input {
+    flex: 1;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1.1rem;
+}
+
+.task-input-container button {
+    background-color: #2c2c2c;
+    border: none;
+    padding: 15px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.task-input-container button:hover {
+    background-color: #494a4b;
+}
+
+.task-lists {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensure tasks wrap on smaller screens */
+    flex: 1;
+    height:100%;
+    overflow-y: auto;
+}
+
+.pending-tasks, .completed-tasks {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    width: 100%; 
+    flex: 1 1 48%; 
+    height: calc(100% - 20px); /* Maximize height minus margins and padding */
+    overflow-y: auto; /* Allow scrolling if tasks exceed available space */
+    max-height: calc(100vh - 200px); /* Adjust maximum height based on screen */
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+li.removing {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+li button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+li .edit-btn {
+    color: #007bff;
+}
+
+li .delete-btn {
+    color: #dc3545;
+}
+
+#notification {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(228, 223, 223, 0.9);
+    color: rgb(0, 0, 0);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+#notification.show {
+    top: 20px;
+    opacity: 1;
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+    .task-input-container input, .task-input-container button {
+        padding: 15px;
+    }
+
+    .pending-tasks, .completed-tasks {
+        width: 48%; /* Occupy two columns side by side on larger screens */
+        max-height: calc(100vh - 150px); /* Ensure the task lists don't overflow vertically */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+}
+/* Media Query for Smaller Mobile Screens */
+@media (max-width: 600px) {
+    .container {
+        height: 100vh;
+        width: 95%; /* Ensure it takes most of the screen on mobile */
+        padding: 10px;
+        overflow: hidden; /* Prevent overflow on small screens */
+    }
+
+    .task-lists {
+        flex-direction: column; /* Stack tasks vertically */
+        overflow-y: auto; /* Ensure scrolling if content exceeds height */
+    }
+
+    .pending-tasks, .completed-tasks {
+        width: 100%; 
+        flex: none; 
+        height: auto; 
+        max-height: calc(50vh - 75px); /* Set max height to half the screen minus padding */
+        margin-bottom: 15px; 
+        overflow-y: auto; /* Ensure each section can scroll if needed */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .task-input-container input, .task-input-container button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    li {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
